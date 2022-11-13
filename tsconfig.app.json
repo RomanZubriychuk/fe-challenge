@@ -11,5 +11,12 @@
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "paths": {
+    "@layouts/*":["src/app/layouts/*"],
+    "@shared/*":["src/app/shared/*"],
+    "@api/*":["src/app/api/*"],
+    "@app/*": ["src/app/*"],
+    "@env": ["src/environments/environment"]
+  }
 }
