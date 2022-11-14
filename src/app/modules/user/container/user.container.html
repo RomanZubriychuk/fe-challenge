@@ -1,1 +1,5 @@
-<app-users-list></app-users-list>
+<app-users-list
+  [users]="users$ | async"
+  [page]="page$ | async"
+  [limit]="limit$ | async"
+></app-users-list>

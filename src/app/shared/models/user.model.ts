@@ -2,15 +2,10 @@ import {Gender} from "./gender.enum";
 
 export interface User {
   gender: Gender,
-  name: Name,
+  name: string,
   email: string,
   id: string
-}
-
-interface Name {
-  title: string,
-  first: string,
-  last: string
+  location: Location
 }
 
 interface Location {

@@ -13,6 +13,8 @@ import { User } from "@shared/models/user.model";
 export class UserContainer implements OnInit {
 
   @Select(UserSelectors.getUsers) users$!: Observable<User[]>
+  @Select(UserSelectors.getPage) page$!: Observable<number>
+  @Select(UserSelectors.getLimit) limit$!: Observable<number>
 
   constructor(
     private userViewService: UserViewService

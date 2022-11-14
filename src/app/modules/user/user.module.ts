@@ -4,6 +4,8 @@ import { UserContainer } from './container/user.container';
 import { NgxsModule } from "@ngxs/store";
 import { UserState } from "./store/user.state";
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { AppMaterialModule } from "@app/modules/material/AppMaterialModule";
+import { CommonModule } from "@angular/common";
 
 const routes: Routes = [
   {path: "", component: UserContainer}
@@ -15,8 +17,10 @@ const routes: Routes = [
     UsersListComponent
   ],
   imports: [
+    CommonModule,
     RouterModule.forChild(routes),
-    NgxsModule.forFeature([UserState])
+    NgxsModule.forFeature([UserState]),
+    AppMaterialModule,
   ],
   exports: [RouterModule]
 })

@@ -11,10 +11,19 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   fetchUsers(limit: number, page: number): Observable<User[]> {
-    const params = new HttpParams();
-    params
-      .append("results", limit)
-      .append("page", page)
-    return this.http.get<any>("api", {params}).pipe(map(res => res.results))
+    const params = new HttpParams()
+      .set("results", limit)
+      .set("page", page)
+    return this.http
+      .get<any>("api", {params})
+      .pipe(
+        map(res => res.results),
+        map( users => {
+          return users.map((u: any) => {
+            u['name'] = `${u.name.title} ${u.name.first} ${u.name.last}`
+            return u;
+          })
+        })
+      )
   }
 }

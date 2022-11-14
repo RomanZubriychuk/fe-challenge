@@ -8,8 +8,6 @@ import {FetchAllUsers} from "../store/user.actions";
   providedIn: 'root'
 })
 export class UserViewService {
-  limit = 20;
-  page = 1;
   constructor(private store: Store) { }
 
   reset() {
@@ -17,8 +15,6 @@ export class UserViewService {
   }
 
   init() {
-    this.store.dispatch([
-      new FetchAllUsers(this.limit, this.page)
-    ])
+    this.store.dispatch([FetchAllUsers])
   }
 }
