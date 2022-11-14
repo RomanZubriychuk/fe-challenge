@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiLink: "",
+  apiLink: "https://randomuser.me",
   production: false
 };
 
