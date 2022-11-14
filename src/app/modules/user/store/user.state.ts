@@ -1,7 +1,7 @@
 import { Action, State, StateContext } from "@ngxs/store";
 import { UserStateModel } from "./user-state.model";
 import { Injectable } from "@angular/core";
-import {FetchAllUsers, UpdatePageParams} from "./user.actions";
+import {FetchAllUsers, SelectUser, UpdatePageParams} from "./user.actions";
 import { tap } from "rxjs";
 import { UserService } from "@api/user.api.service";
 
@@ -10,7 +10,8 @@ import { UserService } from "@api/user.api.service";
   defaults: {
     page: 1,
     limit: 10,
-    users: null
+    users: null,
+    selectedUser: null
   }
 })
 @Injectable()
@@ -32,5 +33,10 @@ export class UserState {
   updatePageParams(ctx: StateContext<UserStateModel>, {page, limit}: UpdatePageParams) {
     ctx.setState({...ctx.getState(), page, limit});
     ctx.dispatch(FetchAllUsers);
+  }
+
+  @Action(SelectUser)
+  selectUser(ctx: StateContext<UserStateModel>, {user}: SelectUser) {
+    ctx.setState({...ctx.getState(), selectedUser: user})
   }
 }

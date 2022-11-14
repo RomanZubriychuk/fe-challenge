@@ -3,7 +3,8 @@ import { User } from "@shared/models/user.model";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { Store } from "@ngxs/store";
-import { UpdatePageParams } from "@app/modules/user/store/user.actions";
+import { SelectUser, UpdatePageParams } from "@app/modules/user/store/user.actions";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-users-list',
@@ -26,12 +27,7 @@ export class UsersListComponent {
   // not specified from API
   maxLength = 5000;
 
-  constructor(private store: Store) {
-  }
-
-  ngAfterViewInit() {
-    if (this.paginator && this.dataSource)
-      this.dataSource.paginator = this.paginator;
+  constructor(private store: Store, private router: Router) {
   }
 
   applyFilter(event: Event) {
@@ -46,5 +42,10 @@ export class UsersListComponent {
 
   onPageChange(event: PageEvent) {
     this.store.dispatch(new UpdatePageParams(event.pageSize, event.pageIndex + 1))
+  }
+
+  onUserClick(user: User) {
+    this.store.dispatch(new SelectUser(user))
+    this.router.navigate(['users', user?.id?.value || user.email])
   }
 }

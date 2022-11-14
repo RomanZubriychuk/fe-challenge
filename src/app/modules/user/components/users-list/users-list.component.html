@@ -25,7 +25,10 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+        (click)="onUserClick(row)"
+    ></tr>
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
@@ -33,7 +36,8 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+  <mat-paginator *ngIf="maxLength && limit"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
                  [length]="maxLength"
                  [pageSize]="limit"
                  (page)="onPageChange($event)"

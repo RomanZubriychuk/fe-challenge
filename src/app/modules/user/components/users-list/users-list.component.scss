@@ -6,3 +6,7 @@ table {
   padding-left: 15px;
   padding-right: 15px;
 }
+.mat-row:hover .mat-cell {
+  cursor: pointer;
+  background: rgba(0,0,0, 0.1);
+}

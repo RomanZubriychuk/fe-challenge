@@ -5,17 +5,22 @@ import {User} from "@shared/models/user.model";
 
 export class UserSelectors {
   @Selector([UserState])
-  static getUsers(state: UserStateModel): User[] | null{
+  static getUsers(state: UserStateModel): User[] | null {
     return state.users
   }
 
   @Selector([UserState])
-  static getPage(state: UserStateModel): number{
+  static getPage(state: UserStateModel): number {
     return state.page
   }
 
   @Selector([UserState])
-  static getLimit(state: UserStateModel): number{
+  static getLimit(state: UserStateModel): number {
     return state.limit
+  }
+
+  @Selector([UserState])
+  static getSelectedUser(state: UserStateModel): User | null {
+    return state.selectedUser
   }
 }
