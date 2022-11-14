@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserInfoComponent } from './user-info.component';
+import {NgxsModule} from "@ngxs/store";
 
 describe('UserInfoComponent', () => {
   let component: UserInfoComponent;
@@ -8,9 +9,10 @@ describe('UserInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserInfoComponent ]
+      imports: [NgxsModule.forRoot([])],
+      declarations: [UserInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UserInfoComponent);
     component = fixture.componentInstance;
