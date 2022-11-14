@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
-import {MainLayoutComponent} from "./main-layout.component";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { MainLayoutComponent } from "./main-layout.component";
 
 const routes: Routes = [
   {
@@ -8,7 +8,8 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       {path: "", redirectTo: "users", pathMatch: "full"},
-      {path: "users", loadChildren: () => import("../../modules/user/user.module").then((m) => m.UserModule)}
+      {path: "users", loadChildren: () => import("../../modules/user/user.module")
+          .then((m) => m.UserModule)}
     ]
   }
 ]

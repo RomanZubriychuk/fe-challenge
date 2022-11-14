@@ -1,9 +1,9 @@
-import {Action, State, StateContext} from "@ngxs/store";
-import {UserStateModel} from "./user-state.model";
-import {Injectable} from "@angular/core";
-import {FetchAllUsers} from "./user.actions";
-import {UserService} from "../../../api/user.api.service";
-import {tap} from "rxjs";
+import { Action, State, StateContext } from "@ngxs/store";
+import { UserStateModel } from "./user-state.model";
+import { Injectable } from "@angular/core";
+import { FetchAllUsers } from "./user.actions";
+import { tap } from "rxjs";
+import { UserService } from "@api/user.api.service";
 
 @State<UserStateModel>({
   name: "userState",

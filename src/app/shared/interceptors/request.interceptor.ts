@@ -1,7 +1,7 @@
-import {Observable, tap} from "rxjs";
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {Injectable} from "@angular/core";
+import { Observable, tap } from "rxjs";
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from "@angular/common/http";
+import { environment } from "@env";
+import { Injectable } from "@angular/core";
 
 @Injectable({
   providedIn: 'root'
